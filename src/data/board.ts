@@ -25,7 +25,6 @@ export const Board: Columns = {
         description: "Lorem ipsum dolor sit amet ..",
         priority: "low",
         deadline: 5,
-        alt: "task image",
         tags: [
           { title: "Test", ...getRandomColors() },
           { title: "Front", ...getRandomColors() },
@@ -33,23 +32,6 @@ export const Board: Columns = {
       },
     ],
   },
-  // 	name: "To Do",
-  // 	items: [
-  // 		{
-  // 			id: uuidv4(),
-  // 			title: "Admin Panel Front-end",
-  // 			description: "Lorem ipsum dolor sit amet ..",
-  // 			priority: "medium",
-  // 			deadline: 50,
-  // 			image: taskImage3,
-  // 			alt: "task image",
-  // 			tags: [
-  // 				{ title: "Test", ...getRandomColors() },
-  // 				{ title: "Front", ...getRandomColors() },
-  // 			],
-  // 		},
-  // 	],
-  // },
   ongoing: {
     name: "Ongoing",
     items: [
