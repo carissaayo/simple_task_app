@@ -2,7 +2,7 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useState } from "react";
 import { Board } from "../../data/board";
-import { Columns } from "../../types";
+import { Columns, TaskT } from "../../types";
 import { onDragEnd } from "../../helpers/onDragEnd";
 import { AddOutline } from "react-ionicons";
 import AddModal from "../../components/Modals/AddModal";
@@ -25,6 +25,14 @@ const Home = () => {
   const handleAddTask = (taskData: any) => {
     const newBoard = { ...columns };
     newBoard[selectedColumn].items.push(taskData);
+  };
+  const handleDeleteTask = (taskData: TaskT) => {
+    const newBoards = Board[taskData.name.toLowerCase()].items.filter(
+      (item: TaskT) => item.id !== taskData.id
+    );
+    // console.log(newBoards);
+
+    setColumns(newBoards);
   };
 
   return (
@@ -53,7 +61,11 @@ const Home = () => {
                       >
                         {(provided: any) => (
                           <>
-                            <Task provided={provided} task={task} />
+                            <Task
+                              provided={provided}
+                              task={task}
+                              handleDeleteTask={handleDeleteTask}
+                            />
                           </>
                         )}
                       </Draggable>

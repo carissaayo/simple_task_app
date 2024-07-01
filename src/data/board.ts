@@ -9,6 +9,7 @@ export const Board: Columns = {
     items: [
       {
         id: uuidv4(),
+        name: "Pending",
         title: "Admin Panel Back-end",
         description:
           "Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet ..",
@@ -21,6 +22,7 @@ export const Board: Columns = {
       },
       {
         id: uuidv4(),
+        name: "Pending",
         title: "Admin Panel Front-end",
         description: "Lorem ipsum dolor sit amet ..",
         priority: "low",
@@ -37,6 +39,7 @@ export const Board: Columns = {
     items: [
       {
         id: uuidv4(),
+        name: "Ongoing",
         title: "Admin Panel Front-end",
         description: "Lorem ipsum dolor sit amet ..",
         priority: "low",
@@ -49,6 +52,7 @@ export const Board: Columns = {
 
       {
         id: uuidv4(),
+        name: "Ongoing",
         title: "Admin Panel Front-end",
         description: "Lorem ipsum dolor sit amet ..",
         priority: "medium",
@@ -60,6 +64,7 @@ export const Board: Columns = {
       },
       {
         id: uuidv4(),
+        name: "Ongoing",
         title: "Admin Panel Back-end",
         description: "Lorem ipsum dolor sit amet ..",
         priority: "low",
@@ -76,6 +81,7 @@ export const Board: Columns = {
     items: [
       {
         id: uuidv4(),
+        name: "Completed",
         title: "Admin Panel Front-end",
         description: "Lorem ipsum dolor sit amet ..",
         priority: "high",
@@ -87,6 +93,7 @@ export const Board: Columns = {
       },
       {
         id: uuidv4(),
+        name: "Completed",
         title: "Admin Panel Back-end",
         description: "Lorem ipsum dolor sit amet ..",
         priority: "medium",

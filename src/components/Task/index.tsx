@@ -1,15 +1,26 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+import { useState } from "react";
 // @ts-nocheck
-import { TimeOutline } from "react-ionicons";
+import { PencilOutline, TimeOutline, TrashOutline } from "react-ionicons";
 import { TaskT } from "../../types";
+import EditModal from "../Modals/EditModal";
 
 interface TaskProps {
   task: TaskT;
   provided: any;
+  handleDeleteTask: (taskData: any) => void;
 }
 
-const Task = ({ task, provided }: TaskProps) => {
+const Task = ({ task, provided, handleDeleteTask }: TaskProps) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const { title, description, priority, deadline, tags } = task;
+  const openEditModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <div
@@ -18,16 +29,38 @@ const Task = ({ task, provided }: TaskProps) => {
       {...provided.dragHandleProps}
       className="w-full cursor-grab bg-[#fff] flex flex-col justify-between gap-3 items-start shadow-sm rounded-xl px-3 py-4"
     >
-      <div className="flex items-center gap-2 px-2">
-        {tags.map((tag) => (
+      <div className="flex w-full items-center justify-between ">
+        <div className="flex items-center gap-2 px-2">
+          {tags.map((tag) => (
+            <span
+              key={tag.title}
+              className="px-[10px] py-[2px] text-[13px] font-medium rounded-md"
+              style={{ backgroundColor: tag.bg, color: tag.text }}
+            >
+              {tag.title}
+            </span>
+          ))}
+        </div>
+        {/* <div className="pr-2 flex items-center gap-2">
+          <EditModal
+            isOpen={modalOpen}
+            onClose={closeModal}
+            setOpen={setModalOpen}
+            task={task}
+          />
           <span
-            key={tag.title}
-            className="px-[10px] py-[2px] text-[13px] font-medium rounded-md"
-            style={{ backgroundColor: tag.bg, color: tag.text }}
+            className="hover:cursor-pointer"
+            onClick={() => openEditModal()}
           >
-            {tag.title}
+            <PencilOutline color={"#00000"} height="15px" width="15px" />
           </span>
-        ))}
+          <span
+            className="hover:cursor-pointer"
+            onClick={() => handleDeleteTask(task)}
+          >
+            <TrashOutline color={"#e21212"} height="20px" width="20px" />
+          </span>
+        </div> */}
       </div>
       <div className="w-full flex items-start flex-col gap-0 px-2">
         <span className="text-[15.5px] font-medium text-[#555]">{title}</span>
@@ -36,7 +69,7 @@ const Task = ({ task, provided }: TaskProps) => {
       <div className="w-full border border-dashed"></div>
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center gap-1">
-          <TimeOutline color={"#666"} width="19px" height="19px" />
+          <TimeOutline color={"#666"} width="20px" height="20px" />
           <span className="text-[13px] text-gray-700">{deadline} mins</span>
         </div>
         <div
